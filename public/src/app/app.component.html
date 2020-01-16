@@ -1,0 +1,36 @@
+<div id="wrapper">
+  
+  <div id="header">
+    <h1>Welcome to a page dedicated to our Favorite Authors!</h1>
+  </div>
+
+  <div id = "left">
+    <div id ="authorEditor" *ngIf="editAnAuthor">
+      <app-edit-an-author [shownAuthor] = "shownAuthor" (myEvent)="signalEdit()" (toggleEvent)="showAnAuthorSwitch()"></app-edit-an-author>
+    </div>
+
+    <div id ="allAuthors" *ngIf="editAnAuthor == false">
+      <button (click)="addAnAuthor = true" (click)="showAnAuthor = false">Add An Author</button>
+      <h3>Here are the authors currently in the system:</h3>
+      <div id = "leftList" *ngFor="let author of authors">
+        {{ author.lastName }}, {{ author.firstName }}<br>
+        <img id ="miniIMG" src="{{ author.image }}" (click)="showAuthor(author)" alt="Author Picture Here!">
+      </div>
+    </div>
+  </div>
+
+  <div id = "right">
+    <div id ="addAuthor" *ngIf="addAnAuthor">
+      <app-add-an-author (myEvent)="onSubmit()"></app-add-an-author>
+    </div>
+    <div id ="showAuthor" *ngIf="showAnAuthor">
+      <app-author-page [shownAuthor] = "shownAuthor" (callParent)="showAnAuthorSwitch()" (callEdit)="showEditor()"></app-author-page>
+    </div>
+  </div>
+
+  <div id = "footer">
+    This is the bottom!
+  </div>
+
+</div>
+<router-outlet></router-outlet>

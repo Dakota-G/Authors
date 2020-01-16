@@ -1,0 +1,22 @@
+<div id = "authEditor">
+   	<form (submit)="onEdit()">
+       	<h2>Edit info for {{ shownAuthor.firstName }} {{ shownAuthor.lastName }}!</h2>
+        <p><label> First Name: </label>
+        <input type="text" name="editedAuthor.firstName" [(ngModel)]="editedAuthor.firstName"></p>
+        <p><label> Last Name: </label>
+        <input type="text" name="editedAuthor.lastName" [(ngModel)]="editedAuthor.lastName"></p>
+        <input type="submit" value="Add Edits">
+    </form>
+
+</div>
+<div id = "bookAdder">
+	<form (submit)="addBook()">
+		<h2>Add or remove a book!</h2>
+		<p><label> Book Title </label>
+			<input type="text" name="addedBook.title"></p>
+			<input type="submit" value="Add Book"></form>
+
+	<div *ngFor="let book of shownAuthor.books">
+{{ book.title }} <button (click)="removeBook(book.title)"> Remove </button>
+	</div>
+</div>

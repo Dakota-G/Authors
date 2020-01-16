@@ -1,0 +1,16 @@
+
+<div id = "authorDisplay">
+
+<h1>{{ shownAuthor.firstName }} {{ shownAuthor.lastName }}</h1>
+<button *ngIf="editAnAuthor == false" (click)="editAuthor()">Edit Info</button>
+<button *ngIf="editAnAuthor == true" (click)="editAuthor()">Cancel Edit</button>
+<br>
+<img id="bigIMG" src = "{{ shownAuthor.image }}" alt="An author's image can go here!" (click)="myEvent()">
+<br>
+Books:
+
+<p *ngFor="let book of shownAuthor.books">
+{{ book.title }}
+</p>
+
+</div>

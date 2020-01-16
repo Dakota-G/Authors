@@ -1,0 +1,17 @@
+<div id = "subForm">
+	<h2> Submit Your Favorite Author! </h2>
+  	<form (submit)="onSubmit()">
+	    <p><label for="addedAuthor.firstName"> First Name </label>
+	    <input type="text" name="addedAuthor.firstName" [(ngModel)]="addedAuthor.firstName"></p>
+	    <p><label for="addedAuthor.lastName"> Last Name </label>
+	    <input type="text" name="addedAuthor.lastName" [(ngModel)]="addedAuthor.lastName"></p>
+	    <p><label for="newCake.image"> Enter an Image URL </label>
+	    <input type="url" name="addedAuthor.image" [(ngModel)]="addedAuthor.image"></p>
+	    <input type="submit" value="Submit Author"><button (click)="event()">Cancel</button></form>
+</div>
+<div id = "newAuthorDisplay">
+	<p> Author: {{ addedAuthor.lastName }} , {{addedAuthor.firstName}} </p>
+    <img src = "{{ addedAuthor.image }}" width = "300px">
+    <p> Active? {{ addedAuthor.active }} </p>
+    <p *ngIf="active"> {{ addedAuthor.upcomingBook }} </p>
+</div>
